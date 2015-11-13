@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login to Blog.Ly</title>
+
+	<!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="small-container well">
+	<h2>Login</h2>
+	
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+	<div class="margin-top-20">
+		<%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+	</div>
+
+	<div class="margin-top-20">
+		<%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+	</div>
+	
+	<% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+	<div class="margin-top-20">
+		<button type="submit" class="btn btn-primary">Login</button>
+	</div>
+
+	<div class="margin-top-10">
+		<%= render "devise/shared/links" %>
+	</div>
+	
+	
+	
+	<% end %>
+</div>
+
+
+
+</body>
+</html>
